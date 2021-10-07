@@ -33,3 +33,14 @@ code {
   font-weight: bold;
   padding: 0.125rem 0.25rem;
 }
+.flex {
+  display: flex;
+}
+
+.flex-space-between {
+  justify-content: space-between;
+}
+
+.full-width {
+  width: 100%;
+}

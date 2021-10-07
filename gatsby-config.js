@@ -7,6 +7,7 @@ module.exports = {
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
     "gatsby-plugin-sitemap",
+    "gatsby-plugin-material-ui",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
