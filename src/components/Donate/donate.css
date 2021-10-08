@@ -129,3 +129,13 @@ body {
 label{
     font-size: 15px;
 }
+h2{
+    font-family: 'Times New Roman', Times, serif;
+}
+h3{
+    font-family: 'Times New Roman', Times, serif;
+}
+/* .form-group{
+    font-family: 'Times New Roman', Times, serif;
+
+} */
