@@ -40,39 +40,30 @@ const DonatePage = () => {
               variant="filled"
             />
           </div>
-          <FormControl>
-              <InputLabel id="organ-select">Select an organ</InputLabel>
-            <div class="form-group ">
-              <Select
-                labelId="organ-select"
-                id="organs"
-                className="full-width"
-                variant="filled"
-              >  
-                <MenuItem value="liver">Liver</MenuItem>
-                <MenuItem value="kidney">Kidney</MenuItem>
-                <MenuItem value="pancreas">Pancreas</MenuItem>
-                <MenuItem value="heart">Heart</MenuItem>
-                <MenuItem value="lung">Lung</MenuItem>
-                <MenuItem value="intestine">Intestine</MenuItem>
-                <MenuItem value="corneas">Corneas</MenuItem>
-                <MenuItem value="middle-ear">Midddle Ear</MenuItem>
-                <MenuItem value="skin">Skin</MenuItem>
-                <MenuItem value="bone">Bone</MenuItem>
-                <MenuItem value="bone-marrow">Bone marrow</MenuItem>
-                <MenuItem value="heart-valves">Heart Valves</MenuItem>
-                {/* <MenuItem value=""><em>None</em> </MenuItem> */}
-              </Select>
-            </div>
-          </FormControl>
           <div class="form-group">
             <TextField
+              id="organ"
               className="full-width"
-              id="condition"
-              label="Condition of organ"
+              label="Select an Organ"
               variant="filled"
             />
           </div>
+          <FormControl>
+          <InputLabel id="condition-select">Condition of organ</InputLabel>
+          <div class="form-group">
+            <Select
+              labelId="condition-select"
+              id="condition"
+              className="full-width"
+              variant="filled"
+            >
+              <MenuItem value="new">NEW</MenuItem>
+              <MenuItem value="old">OLD</MenuItem>
+              <MenuItem value="good">GOOD</MenuItem>
+              <MenuItem value="bad">BAD</MenuItem>
+              </Select>
+          </div>
+          </FormControl>
           <div class="form-group">
             <Button
               className="upload-container"
