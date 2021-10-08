@@ -49,20 +49,20 @@ const DonatePage = () => {
             />
           </div>
           <FormControl>
-          <InputLabel id="condition-select">Condition of organ</InputLabel>
-          <div class="form-group">
-            <Select
-              labelId="condition-select"
-              id="condition"
-              className="full-width"
-              variant="filled"
-            >
-              <MenuItem value="new">NEW</MenuItem>
-              <MenuItem value="old">OLD</MenuItem>
-              <MenuItem value="good">GOOD</MenuItem>
-              <MenuItem value="bad">BAD</MenuItem>
+            <InputLabel id="condition-select">Condition of organ</InputLabel>
+            <div class="form-group">
+              <Select
+                labelId="condition-select"
+                id="condition"
+                className="full-width"
+                variant="filled"
+              >
+                <MenuItem value="new">NEW</MenuItem>
+                <MenuItem value="old">OLD</MenuItem>
+                <MenuItem value="good">GOOD</MenuItem>
+                <MenuItem value="bad">BAD</MenuItem>
               </Select>
-          </div>
+            </div>
           </FormControl>
           <div class="form-group">
             <Button

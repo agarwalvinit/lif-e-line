@@ -6,18 +6,75 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import "./available.css";
+// import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
+import CheckBoxRoundedIcon from '@mui/icons-material/CheckBoxRounded';
+import CancelPresentationFilledIcon from '@mui/icons-material/CancelPresentationTwoTone';
+import Button from "@mui/material/Button";
+import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+
 
 function createData(name, age, prescription, bloodgroup, acceptreject) {
   return { name, age, prescription, bloodgroup, acceptreject };
 }
 
 const rows = [
-  createData('Fortis', 56, 0, 'B+', 4.0),
-  // createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  // createData('Eclair', 262, 16.0, 24, 6.0),
-  // createData('Cupcake', 305, 3.7, 67, 4.3),
-  // createData('Gingerbread', 356, 16.0, 49, 3.9),
+  createData(
+    'Fortis', 
+    56,
+    <div><Button className="upload"><FileUploadOutlinedIcon style={{ color : "black"}}/></Button></div>,
+    'B+',
+    <div>
+      <Button className="accept"><CheckBoxRoundedIcon style={{ color : "#08E72B"}}/></Button>
+      <Button className="reject"><CancelPresentationFilledIcon style={{fill:"#B11005"}}/></Button>
+    </div>
+    )
+    ,
+  createData(
+    'Fortis', 
+    65,
+    <div><Button className="upload"><FileUploadOutlinedIcon style={{ color : "black"}}/></Button></div>,
+    'O-',
+    <div>
+      <Button className="accept"><CheckBoxRoundedIcon style={{ color : "#08E72B"}}/></Button>
+      <Button className="reject"><CancelPresentationFilledIcon style={{fill:"#B11005"}}/></Button>
+    </div>
+    )
+    ,
+  createData(
+    'Fortis', 
+    80,
+    <div><Button className="upload"><FileUploadOutlinedIcon style={{ color : "black"}}/></Button></div>,
+    'AB+',
+    <div>
+      <Button className="accept"><CheckBoxRoundedIcon style={{ color : "#08E72B"}}/></Button>
+      <Button className="reject"><CancelPresentationFilledIcon style={{fill:"#B11005"}}/></Button>
+    </div>
+    )
+    ,
+  createData(
+    'Fortis', 
+    28,
+    <div><Button className="upload"><FileUploadOutlinedIcon style={{ color : "black"}}/></Button></div>,
+    'A+',
+    <div>
+      <Button className="accept"><CheckBoxRoundedIcon style={{ color : "#08E72B"}}/></Button>
+      <Button className="reject"><CancelPresentationFilledIcon style={{fill:"#B11005"}}/></Button>
+    </div>
+    )
+    ,
+  createData(
+    'Fortis', 
+    25,
+    <div><Button className="upload"><FileUploadOutlinedIcon style={{ color : "black"}}/></Button></div>,
+    'O+',
+    <div>
+      <Button className="accept"><CheckBoxRoundedIcon style={{ color : "#08E72B"}}/></Button>
+      <Button className="reject"><CancelPresentationFilledIcon style={{fill:"#B11005"}}/></Button>
+    </div>
+    )
+    
 ];
 
 export default function BasicTable() {
@@ -26,11 +83,11 @@ export default function BasicTable() {
       <Table sx={{ minWidth: 500 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Hospital Name</TableCell>
-            <TableCell align="right">Donor Age</TableCell>
-            <TableCell align="right">Prescription</TableCell>
-            <TableCell align="right">Blood Group</TableCell>
-            <TableCell align="right">Accept/Reject</TableCell>
+            <TableCell align="center">Hospital Name</TableCell>
+            <TableCell align="center">Donor Age</TableCell>
+            <TableCell align="center">Prescription</TableCell>
+            <TableCell align="center">Blood Group</TableCell>
+            <TableCell align="center">Accept/Reject</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -39,13 +96,11 @@ export default function BasicTable() {
               key={row.name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.age}</TableCell>
-              <TableCell align="right">{row.prescription}</TableCell>
-              <TableCell align="right">{row.bloodgroup}</TableCell>
-              <TableCell align="right">{row.acceptreject}</TableCell>
+              <TableCell align="center">{row.name}</TableCell>
+              <TableCell align="center">{row.age}</TableCell>
+              <TableCell align="center">{row.prescription}</TableCell>
+              <TableCell align="center">{row.bloodgroup}</TableCell>
+              <TableCell align="center">{row.acceptreject}</TableCell>
             </TableRow>
           ))}
         </TableBody>
