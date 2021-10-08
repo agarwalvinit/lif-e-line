@@ -74,7 +74,12 @@ body {
     padding: 10px;
 
 }
-
+.donor-age{
+    padding-right:5px;
+}
+.blood-group{
+    padding-left:5px;
+}
 
 .form-group {
     padding-bottom: 8px;
@@ -85,7 +90,16 @@ body {
     width: 20%;
     margin: 15px auto;
 }
-
+.upload-container{
+    color:grey;
+    border: 1px solid grey;
+}
+.upload-container:hover{
+    border:1px solid black;
+}
+/* .upload{
+    width:10%;
+} */
 .btn {
     margin: 0px 9px;
     background-color: rgb(73, 70, 70);

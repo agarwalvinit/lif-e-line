@@ -7,6 +7,7 @@ import Login from "../components/Login";
 import PrivateRoute from "../components/PrivateRoute";
 import Status from "../components/Status";
 import DonatePage from "../components/Donate/donate";
+import RequestPage from "../components/Request/request";
 import Avail from "../components/Available/available";
 
 
@@ -18,7 +19,9 @@ const App = () => {
         <PrivateRoute path="/app/details" component={Details} />
         <PrivateRoute path="/app/profile" component={Profile} />
         <PrivateRoute path="/app/donate" component={DonatePage} />
+        <PrivateRoute path="/app/request" component={RequestPage} />
         <PrivateRoute path="/app/available" component={Avail} />
+
         <Login path="/app/login" />
       </Router>
     </Layout>

@@ -4,17 +4,17 @@ import TextField from "@mui/material/TextField";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import "./donate.css";
+import "./request.css";
 import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
 import Button from "@mui/material/Button";
 import InputLabel from '@mui/material/InputLabel';
-const DonatePage = () => {
+const RequestPage = () => {
   const { name } = getCurrentUser();
 
   return (
     <div class="container">
-      <div class="donation form">
-        <h2>Donate an Organ</h2>
+      <div class="request form">
+        <h2>Request an Organ</h2>
         <h3>Donor details</h3>
 
         <FormControl action="no action.php" id="Donate">
@@ -27,11 +27,11 @@ const DonatePage = () => {
             />
           </div>
           <div class="form-group flex ">
-            <TextField className="donor-age" id="donor-age" label="Donor Age" variant="filled" />
-            <TextField className="blood-group" id="blood-group" label="Blood Group" variant="filled" />
+            <TextField id="donor-age" label="Donor Age" variant="filled" />
+            <TextField id="blood-group" label="Blood Group" variant="filled" />
           </div>
           <div class="form-group ">
-            <InputLabel  id="organ-select">Select an organ</InputLabel>
+            {/* <InputLabel  id="organ-select">Select an organ</InputLabel> */}
             <Select
               labelId="organ-select"
               id="organs"
@@ -53,7 +53,7 @@ const DonatePage = () => {
             />
           </div>
           <div class="form-group">
-            <Button className="upload-container" variant="outlined" component="span" startIcon={<FileUploadOutlinedIcon />}>
+            <Button variant="outlined" component="span" startIcon={<FileUploadOutlinedIcon />}>
               Upload Prescription
             </Button>
           </div>
@@ -68,4 +68,4 @@ const DonatePage = () => {
     </div>
   );
 };
-export default DonatePage;
+export default RequestPage;
