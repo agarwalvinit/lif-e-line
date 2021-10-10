@@ -4,32 +4,29 @@ import TextField from "@mui/material/TextField";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import "./donate.css";
+import "./signup.css";
 import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
 import Button from "@mui/material/Button";
 import InputLabel from "@mui/material/InputLabel";
-const DonatePage = () => {
+const SignupPage = () => {
   // const { name } = getCurrentUser();
 
-  
   return (
-    <body>
-
-     <div class="container">
+    <div class="container">
       <div class="donation form">
-        <h2>Donate an Organ</h2>
+        <h1>Sign up</h1>
         <h3>Donor details</h3>
 
         <FormControl action="no action.php" id="Donate">
           <div class="form-group">
             <TextField
-              id="donor-name"
+              id="license-number"
               className="full-width"
-              label="Donor Name"
+              label="License Number"
               variant="filled"
             />
           </div>
-          <div class="form-group flex ">
+          {/* <div class="form-group flex ">
             <TextField
               className="donor-age"
               id="donor-age"
@@ -42,16 +39,19 @@ const DonatePage = () => {
               label="Blood Group"
               variant="filled"
             />
-          </div>
+          </div> */}
           <div class="form-group">
             <TextField
-              id="organ"
+              id="hospital-name"
               className="full-width"
-              label="Select an Organ"
+              label="Hospital Name"
               variant="filled"
             />
           </div>
+          <div>
+          </div>
           <FormControl>
+          <InputLabel className="hospital-address" id="hospital-address">Address</InputLabel>
             <InputLabel id="condition-select">Condition of organ</InputLabel>
             <div class="form-group">
               <Select
@@ -90,7 +90,6 @@ const DonatePage = () => {
         </FormControl>
       </div>
     </div>
-    </body>
   );
 };
-export default DonatePage;
+export default SignupPage;
