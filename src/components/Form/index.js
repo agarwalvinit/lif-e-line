@@ -11,28 +11,13 @@ export default ({ handleSubmit, handleUpdate }) => (
       navigate(`/app/profile`)
     }}
   >
-    <p>
-      For this demo, please log in with the username <code>gatsby</code> and the
-      password <code>demo</code>.
-    </p>
-    <label className={form__label}>
-      Username
-      <input
-        className={form__input}
-        type="text"
-        name="username"
-        onChange={handleUpdate}
-      />
-    </label>
-    <label className={form__label}>
-      Password
-      <input
-        className={form__input}
-        type="password"
-        name="password"
-        onChange={handleUpdate}
-      />
-    </label>
-    <input className={form__button} type="submit" value="Log In" />
+    
+    <input type="text" name="license" id="license" placeholder=" license no" />
+
+    <input type="text" name="email" id="email" placeholder=" Email Address" />
+
+    <input type="text" name=" password" id="password" placeholder=" Password" />
+
+    <input type="submit" value="Login" />
   </form>
 )
