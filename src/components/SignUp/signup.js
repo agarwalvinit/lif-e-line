@@ -86,7 +86,6 @@ const SignupPage = () => {
               Next
             </Button>
           </div>
-          {/* <button class="btn">Next</button> */}
         </FormControl>
       </div>
     </div>

@@ -62,7 +62,6 @@ const RequestPage = () => {
               Next
             </Button>
           </div>
-          {/* <button class="btn">Next</button> */}
         </FormControl>
       </div>
     </div>

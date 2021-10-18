@@ -8,16 +8,18 @@ import "./donate.css";
 import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
 import Button from "@mui/material/Button";
 import InputLabel from "@mui/material/InputLabel";
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet"/>
+
 const DonatePage = () => {
   // const { name } = getCurrentUser();
 
   
   return (
-    <body>
-
+    <div className="main-section">
      <div class="container">
       <div class="donation form">
-        <h2>Donate an Organ</h2>
+        <h2>DONATE AN ORGAN</h2>
         <h3>Donor details</h3>
 
         <FormControl action="no action.php" id="Donate">
@@ -83,14 +85,14 @@ const DonatePage = () => {
               variant="outlined"
               component="span"
             >
-              Next
+              DONATE
             </Button>
           </div>
-          {/* <button class="btn">Next</button> */}
+          
         </FormControl>
       </div>
     </div>
-    </body>
+    </div>
   );
 };
 export default DonatePage;
