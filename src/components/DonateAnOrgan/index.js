@@ -73,12 +73,12 @@ const DonateAnOrgan = () => {
                 <input type="submit" value="Next" class="btn1" />
               </>
             ) : (
-              <div className="request-accepted-container">
+              <div className="donation-accepted-container">
                 <CheckCircleOutlineIcon
                   color="error"
                   style={{ fontSize: "80px" }}
                 />
-                <div className="p-t-2">REQUEST FOR AN ORGAN HAS BEEN MADE</div>
+                <div className="p-t-2">Organ has been donated</div>
               </div>
             )}
           </div>
