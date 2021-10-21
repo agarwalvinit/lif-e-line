@@ -4,7 +4,6 @@ import Profile from "../components/Profile/Profile";
 import Details from "../components/Details";
 import Login from "../components/Login/Login";
 import PrivateRoute from "../components/PrivateRoute";
-import DonatePage from "../components/Donate/donate";
 import RequestPage from "../components/Request/request";
 import SignupPage from "../components/SignUp/signup";
 import LandingPage from "../components/LandingPage";
@@ -22,7 +21,6 @@ const App = (props) => {
       <PrivateRoute path="/app/donate-an-organ" component={DonateAnOrgan} />
       <PrivateRoute path="/app/details" component={Details} />
       <PrivateRoute path="/app/profile" component={Profile} />
-      <PrivateRoute path="/app/donate" component={DonatePage} />
       <PrivateRoute path="/app/request" component={RequestPage} />
       <PrivateRoute path="/app/accept" component={Accept} />
       <PrivateRoute path="/app/signup" component={SignupPage} />

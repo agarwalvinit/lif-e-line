@@ -76,7 +76,7 @@ class Login extends React.Component {
                   <input
                     type="password"
                     name="password"
-                    placeholder="Create password"
+                    placeholder="Enter password"
                   />
                 </div>
                 <div className="button-block">
