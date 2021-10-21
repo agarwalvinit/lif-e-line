@@ -51,10 +51,12 @@
   margin: 15px auto;
 }
 .upload-container {
-  color: grey;
+  background-color: #616878;
+  color: white;
   border: 1px solid grey;
 }
 .upload-container:hover {
+  background-color: #40444F;
   border: 1px solid black;
 }
 

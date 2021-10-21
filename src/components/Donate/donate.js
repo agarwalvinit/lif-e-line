@@ -5,7 +5,7 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import "./donate.css";
-import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
+// import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
 import Button from "@mui/material/Button";
 import InputLabel from "@mui/material/InputLabel";
 
@@ -47,8 +47,8 @@ const DonatePage = () => {
           </div>
           <div class="form-group">
             <TextField
-              id="organ"
               className="full-width"
+              id="organ"
               label="Select an Organ"
               variant="filled"
             />
@@ -85,7 +85,7 @@ const DonatePage = () => {
               variant="outlined"
               component="span"
             >
-              DONATE
+              Donate
             </Button>
           </div>
           
