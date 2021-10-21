@@ -21,7 +21,7 @@
     npm i -g gatsby-cli
     ```
 
-4.  **Clone the repo.**
+2.  **Clone the repo.**
 
     ```shell
     git clone git@github.com:agarwalvinit/lif-e-line.git
@@ -33,7 +33,6 @@
 
     ```shell
     cd lif-e-line/
-    npm install
     npm start
     ```
 

@@ -7,6 +7,7 @@ module.exports = {
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
     "gatsby-plugin-sitemap",
+    "gatsby-plugin-material-ui",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -23,5 +24,13 @@ module.exports = {
       },
       __key: "images",
     },
-  ],
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /vector/,
+        },
+      },
+    },
+  ]
 };

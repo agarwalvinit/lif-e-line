@@ -1,0 +1,34 @@
+@import "../default.scss";
+
+.header {
+  background-color: #423d3d;
+  height: $header-height;
+
+  .header__wrap {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 8px 16px;
+    height: 100%;
+  }
+
+  .header__nav {
+    font-size: 16px;
+    min-width: 200px;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .header__link {
+    color: #ddd;
+  }
+
+  .header__link:hover,
+  .header__link:active,
+  .header__link:focus {
+    color: #fff;
+  }
+}
