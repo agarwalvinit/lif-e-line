@@ -16,20 +16,17 @@ body {
   margin: 0;
 }
 
-* + * {
-  margin-top: 1rem;
-}
-
 body {
   margin: 0;
 }
 
-li {
-  margin-top: 0.25rem;
+a {
+  text-decoration: none;
 }
 
-#___gatsby {
- height: inherit;
+
+#___gatsby, #gatsby-focus-wrapper, #gatsby-focus-wrapper > div {
+  height: 100%;
 }
 
 .flex {

@@ -3,10 +3,12 @@ import PropTypes from "prop-types";
 import { navigate } from "gatsby";
 import { isLoggedIn } from "../utils/auth";
 
+const PUBLIC_ROUTES = ["/", "/app/login"];
+
 const PrivateRoute = ({ component: Component, location, ...rest }) => {
-  if (!isLoggedIn() && location.pathname !== `/app/login`) {
+  if (!isLoggedIn() && !PUBLIC_ROUTES.includes(location.pathname)) {
     // If we’re not logged in, redirect to the home page.
-    navigate(`/app/login`);
+    navigate(`/`);
     return null;
   }
 
