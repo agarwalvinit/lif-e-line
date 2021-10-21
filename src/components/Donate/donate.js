@@ -69,7 +69,7 @@ const DonatePage = () => {
               </Select>
             </div>
           </FormControl>
-          <div class="form-group">
+          {/* <div class="form-group">
             <Button
               className="upload-container"
               variant="outlined"
@@ -78,7 +78,7 @@ const DonatePage = () => {
             >
               Upload Prescription
             </Button>
-          </div>
+          </div> */}
           <div class="form-group">
             <Button
               className="upload-container"

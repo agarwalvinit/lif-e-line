@@ -9,8 +9,6 @@ import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
 import Button from "@mui/material/Button";
 import InputLabel from "@mui/material/InputLabel";
 const SignupPage = () => {
-  // const { name } = getCurrentUser();
-
   return (
     <div class="container">
       <div class="donation form">
@@ -48,10 +46,11 @@ const SignupPage = () => {
               variant="filled"
             />
           </div>
-          <div>
-          </div>
+          <div></div>
           <FormControl>
-          <InputLabel className="hospital-address" id="hospital-address">Address</InputLabel>
+            <InputLabel className="hospital-address" id="hospital-address">
+              Address
+            </InputLabel>
             <InputLabel id="condition-select">Condition of organ</InputLabel>
             <div class="form-group">
               <Select

@@ -8,7 +8,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import "./available.css";
+import "./accept.css";
 // import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
 import CheckBoxRoundedIcon from "@mui/icons-material/CheckBoxRounded";
 import CancelPresentationFilledIcon from "@mui/icons-material/CancelPresentationTwoTone";
