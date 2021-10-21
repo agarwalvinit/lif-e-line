@@ -1,14 +1,18 @@
 import React from "react";
 import { Router } from "@reach/router";
-import Profile from "../components/Profile";
+import Profile from "../components/Profile/Profile";
 import Details from "../components/Details";
-import Login from "../components/Login";
+import Login from "../components/Login/Login";
 import PrivateRoute from "../components/PrivateRoute";
 import DonatePage from "../components/Donate/donate";
 import RequestPage from "../components/Request/request";
 import Avail from "../components/Available/available";
 import SignupPage from "../components/SignUp/signup";
 import LandingPage from "../components/LandingPage";
+import RequestAnOrgan from "../components/RequestAnOrgan";
+import DonateAnOrgan from "../components/DonateAnOrgan";
+
+import "./global.css";
 
 const App = (props) => {
   return (
@@ -16,6 +20,8 @@ const App = (props) => {
       <LandingPage path="/" component={LandingPage} />
       <PrivateRoute path="/app/details" component={Details} />
       <PrivateRoute path="/app/profile" component={Profile} />
+      <PrivateRoute path="/app/request-an-organ" component={RequestAnOrgan} />
+      <PrivateRoute path="/app/donate-an-organ" component={DonateAnOrgan} />
       <PrivateRoute path="/app/donate" component={DonatePage} />
       <PrivateRoute path="/app/request" component={RequestPage} />
       <PrivateRoute path="/app/available" component={Avail} />

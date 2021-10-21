@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap");
+
 html,
 body {
   color: #2a2a2a;
@@ -7,6 +9,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   box-sizing: border-box;
   height: 100%;
+  font-family: "Montserrat", sans-serif;
 }
 
 *,
@@ -24,8 +27,11 @@ a {
   text-decoration: none;
 }
 
-
-#___gatsby, #gatsby-focus-wrapper, #gatsby-focus-wrapper > div {
+#___gatsby,
+#gatsby-focus-wrapper,
+#gatsby-focus-wrapper > div {
+  display: flex;
+  flex-flow: column;
   height: 100%;
 }
 

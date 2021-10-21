@@ -1,9 +1,10 @@
+@import "../default.scss";
+
 .header {
   background-color: #423d3d;
-  height: 60px;
-}
+  height: $header-height;
 
-.header__wrap {
+  .header__wrap {
     align-items: center;
     display: flex;
     justify-content: space-between;
@@ -11,22 +12,23 @@
     max-width: 100%;
     padding: 8px 16px;
     height: 100%;
-}
+  }
 
-.header__nav {
+  .header__nav {
     font-size: 16px;
     min-width: 200px;
     max-width: 500px;
     display: flex;
     justify-content: space-around;
-}
+  }
 
-.header__link {
-  color: #ddd;
-}
+  .header__link {
+    color: #ddd;
+  }
 
-.header__link:hover,
-.header__link:active,
-.header__link:focus {
-  color: #fff;
+  .header__link:hover,
+  .header__link:active,
+  .header__link:focus {
+    color: #fff;
+  }
 }

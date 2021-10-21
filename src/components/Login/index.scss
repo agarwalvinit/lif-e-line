@@ -1,0 +1,75 @@
+@import "../default.scss";
+
+.login-page {
+  background-image: url("../../images/login.svg");
+  background-color: $light-grey;
+  height: calc(100% - $header-height);
+  background-position: 20%;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.login-container {
+  height: 450px;
+  width: 400px;
+  background: rgba($color: $light-grey, $alpha: 0.5);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  backdrop-filter: blur(1px);
+  position: absolute;
+  right: 20%;
+  margin-top: 100px;
+  .login-header {
+    font-size: 24px;
+    padding: 24px;
+    text-align: center;
+    padding-bottom: 40px;
+  }
+  .button-block {
+    padding: 20px 0;
+  }
+  .button {
+    width: 100px;
+    padding: 8px;
+  }
+  .input-spaces {
+    padding: 12px 0;
+  }
+}
+
+.registration form {
+  text-align: center;
+}
+
+input[type="email"] {
+  border-radius: 4px;
+  background-color: $white;
+  width: 250px;
+  height: 30px;
+  color: black;
+  border-color: $white;
+}
+
+input[type="password"] {
+  border-radius: 4px;
+  background-color: $white;
+  width: 250px;
+  height: 30px;
+  color: black;
+  border-color: $white;
+}
+
+input[type="submit"] {
+  margin-top: 40px;
+  border-radius: 8px;
+  background-color: #616878;
+  color: ivory;
+  width: 100px;
+  height: 30px;
+}
+
+input[type="submit"]:hover {
+  background-color: #40444f;
+}

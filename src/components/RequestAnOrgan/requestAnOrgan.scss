@@ -1,0 +1,141 @@
+@import "../default.scss";
+.request-organ-container {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  background-color: $light-grey;
+  align-items: center;
+  justify-content: center;
+
+  form {
+    width: 650px;
+    height: 650px;
+    background-image: url("../../images/request_an_organ.svg");
+    background-position: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .box {
+    width: 600px;
+    height: 600px;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+    margin: auto;
+    margin-top: 30px;
+    padding: 60px;
+    border-radius: 20px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.72) 0%,
+      rgba(229, 229, 229, 0.67) 100%
+    );
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.72) 0%,
+      rgba(229, 229, 229, 0.67) 100%
+    );
+  }
+  .h1 {
+    text-align: center;
+    margin-top: 45px;
+    font-family: "Montserrat", sans-serif;
+    padding: 10px;
+  }
+  .h2 {
+    text-align: center;
+    padding-bottom: 17px;
+  }
+  ::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+  }
+  .inp1 {
+    background-color: white;
+    width: 90%;
+    border: 0px;
+    height: 30px;
+    padding: 3px;
+    padding-left: 19px;
+    border-radius: 6px;
+    margin-left: 10px;
+  }
+  .inp2 {
+    background-color: white;
+    width: 41.5%;
+    border: 0px;
+    height: 30px;
+    margin-left: 10px;
+    padding-left: 16px;
+    border-radius: 6px;
+  }
+  .inp3 {
+    background-color: white;
+    width: 41.5%;
+    border: 0px;
+    height: 30px;
+    margin-left: 20px;
+    padding-left: 16px;
+    border-radius: 6px;
+  }
+  .inp4 {
+    background-color: white;
+    width: 94.6%;
+    border: 0px;
+    height: 30px;
+    margin-left: 10px;
+    padding-left: 13px;
+    border-radius: 6px;
+    color: rgba(0, 0, 0, 0.5);
+  }
+  .box1 {
+    background-color: white;
+    width: 91.6%;
+    height: 50px;
+    margin-top: auto;
+    padding-top: auto;
+    margin-left: 10px;
+    padding-left: 13px;
+    border-radius: 10px;
+    padding-top: 7px;
+  }
+  .inp5 {
+    padding-left: 100px;
+    padding-top: 15px;
+    background-color: white;
+  }
+  .btn {
+    background-color: #616878;
+    width: 25%;
+    padding: 5px;
+    margin-top: 15px;
+    margin-left: 175px;
+    border-radius: 6px;
+    height: 40px;
+    color: white;
+  }
+  .btn:hover {
+    background-color: #40444f;
+    box-shadow: black;
+  }
+  input[type="file"] {
+    display: none;
+  }
+  .upload {
+    font-size: 20px;
+    width: 230px;
+    margin-top: 5px;
+    margin-left: 100px;
+    height: 25px;
+    color: rgba(0, 0, 0, 0.5);
+  }
+  .request-accepted-container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

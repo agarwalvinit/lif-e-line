@@ -5,10 +5,9 @@ const getUser = () =>
 
 const setUser = (user) => (window.localStorage.user = JSON.stringify(user));
 
-export const handleLogin = ({ username, password }) => {
+export const handleLogin = ({ email, password }) => {
   if (!isBrowser) return false;
-
-  if (username === `demo` && password === `demo`) {
+  if (email === `demo@example.org` && password === `demo`) {
     console.log(`Credentials match! Setting the active user.`);
     return setUser({
       name: `Demo`,
@@ -23,6 +22,7 @@ export const isLoggedIn = () => {
   if (!isBrowser) return false;
 
   const user = getUser();
+  console.log(!!user.email);
 
   return !!user.email;
 };
@@ -31,7 +31,6 @@ export const getCurrentUser = () => isBrowser && getUser();
 
 export const logout = (callback) => {
   if (!isBrowser) return;
-
   console.log(`Ensuring the \`user\` property exists.`);
   setUser({});
   callback();

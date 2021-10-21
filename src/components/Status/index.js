@@ -1,10 +1,10 @@
-import React from "react"
-import { Link, navigate } from "@reach/router"
-import { getCurrentUser, isLoggedIn, logout } from "../../utils/auth"
-import { status, status__text } from "./status.module.css"
+import React from "react";
+import { Link, navigate } from "@reach/router";
+import { getCurrentUser, isLoggedIn, logout } from "../../utils/auth";
+import { status, status__text } from "./status.module.css";
 
 export default () => {
-  let details
+  let details;
   if (!isLoggedIn()) {
     details = (
       <p className={status__text}>
@@ -12,9 +12,9 @@ export default () => {
         {` `}
         <Link to="/app/login">log in</Link>.
       </p>
-    )
+    );
   } else {
-    const { name, email } = getCurrentUser()
+    const { name, email } = getCurrentUser();
 
     details = (
       <p className={status__text}>
@@ -23,16 +23,16 @@ export default () => {
         {` `}
         <a
           href="/"
-          onClick={event => {
-            event.preventDefault()
-            logout(() => navigate(`/app/login`))
+          onClick={(event) => {
+            event.preventDefault();
+            logout(() => navigate(`/app/login`));
           }}
         >
           log out
         </a>
       </p>
-    )
+    );
   }
 
-  return <div className={status}>{details}</div>
-}
+  return <div className={status}>{details}</div>;
+};
