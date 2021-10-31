@@ -33,6 +33,10 @@
   .button {
     width: 100px;
     padding: 8px;
+    background-color: #40444f;
+  }
+  .button:hover{
+    background-color: black;
   }
   .input-spaces {
     padding: 12px 0;
