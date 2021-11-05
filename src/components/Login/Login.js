@@ -11,7 +11,7 @@ import CloseIcon from "@mui/icons-material/Close";
 
 import "./index.scss";
 
-class Login extends React.Component {
+class Signup extends React.Component {
   state = {
     email: ``,
     password: ``,
@@ -109,4 +109,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default Signup;

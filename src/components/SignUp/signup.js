@@ -1,93 +1,96 @@
 import React from "react";
-// import { getCurrentUser } from "../../utils/auth";
-import TextField from "@mui/material/TextField";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import "./signup.css";
-import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
+import { navigate, Link } from "gatsby";
+// import Form from "../Form";
+// import View from "../View";
+import Header from "../Header";
+import { handleLogin, isLoggedIn } from "../../utils/auth";
 import Button from "@mui/material/Button";
-import InputLabel from "@mui/material/InputLabel";
-const SignupPage = () => {
-  return (
-    <div class="container">
-      <div class="donation form">
-        <h1>Sign up</h1>
-        <h3>Donor details</h3>
+import Snackbar from "@mui/material/Snackbar";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 
-        <FormControl action="no action.php" id="Donate">
-          <div class="form-group">
-            <TextField
-              id="license-number"
-              className="full-width"
-              label="License Number"
-              variant="filled"
-            />
-          </div>
-          {/* <div class="form-group flex ">
-            <TextField
-              className="donor-age"
-              id="donor-age"
-              label="Donor Age"
-              variant="filled"
-            />
-            <TextField
-              className="blood-group"
-              id="blood-group"
-              label="Blood Group"
-              variant="filled"
-            />
-          </div> */}
-          <div class="form-group">
-            <TextField
-              id="hospital-name"
-              className="full-width"
-              label="Hospital Name"
-              variant="filled"
-            />
-          </div>
-          <div></div>
-          <FormControl>
-            <InputLabel className="hospital-address" id="hospital-address">
-              Address
-            </InputLabel>
-            <InputLabel id="condition-select">Condition of organ</InputLabel>
-            <div class="form-group">
-              <Select
-                labelId="condition-select"
-                id="condition"
-                className="full-width"
-                variant="filled"
-              >
-                <MenuItem value="new">NEW</MenuItem>
-                <MenuItem value="old">OLD</MenuItem>
-                <MenuItem value="good">GOOD</MenuItem>
-                <MenuItem value="bad">BAD</MenuItem>
-              </Select>
-            </div>
-          </FormControl>
-          <div class="form-group">
-            <Button
-              className="upload-container"
-              variant="outlined"
-              component="span"
-              startIcon={<FileUploadOutlinedIcon />}
-            >
-              Upload Prescription
-            </Button>
-          </div>
-          <div class="form-group">
-            <Button
-              className="upload-container"
-              variant="outlined"
-              component="span"
-            >
-              Next
-            </Button>
-          </div>
-        </FormControl>
-      </div>
-    </div>
+import "./index.scss";
+
+class SignUp extends React.Component {
+  state = {
+    email: ``,
+    password: ``,
+    isError: false,
+  };
+
+  handleUpdate(event) {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const loginStatus = handleLogin(this.state);
+    if (loginStatus) {
+      navigate(`/app/profile`);
+    } else {
+      this.setState({ isError: true });
+    }
+  }
+  handleClose = () => {
+    this.setState({ isError: false });
+  };
+
+  renderAction = () => (
+    <React.Fragment>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={this.handleClose}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </React.Fragment>
   );
-};
-export default SignupPage;
+
+  render() {
+    if (isLoggedIn()) {
+      navigate(`/app/profile`);
+    }
+
+    return (
+      <>
+        <Header />
+        <div className="login-page">
+          <div class="login-container">
+            <div class="registration form">
+              <div className="login-header">Sign Up </div>
+              <form
+                method="post"
+                onChange={(event) => this.handleUpdate(event)}
+                onSubmit={(event) => {
+                  this.handleSubmit(event);
+                }}
+              >
+                <div className="input-spaces">
+                  <input type="email" name="email" placeholder="Email" />
+                </div>
+                <div className="input-spaces">
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="New password"
+                  />
+                </div>
+                <div className="button-block-2">
+                  <Button variant="contained" className="button" type="submit">
+                    Confirm
+                  </Button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  }
+}
+
+export default SignUp;
