@@ -5,7 +5,6 @@ import Details from "../components/Details";
 import Login from "../components/Login/Login";
 import SignUp from "../components/SignUp/Signup";
 import PrivateRoute from "../components/PrivateRoute";
-import RequestPage from "../components/Request/request";
 import LandingPage from "../components/LandingPage";
 import RequestAnOrgan from "../components/RequestAnOrgan";
 import DonateAnOrgan from "../components/DonateAnOrgan";
@@ -23,7 +22,6 @@ const App = (props) => {
       <PrivateRoute path="/app/donate-an-organ" component={DonateAnOrgan} />
       <PrivateRoute path="/app/details" component={Details} />
       <PrivateRoute path="/app/profile" component={Profile} />
-      <PrivateRoute path="/app/request" component={RequestPage} />
       <PrivateRoute path="/app/accept" component={Accept} />
       <PrivateRoute path="/app/verify" component={Verify} />
       <PrivateRoute path="/app/verified" component={Verified} />
