@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import Header from "../Header";
+import check from "/group.svg"
 
 import "./index.scss";
 
@@ -11,9 +11,9 @@ const PolicyCompliance = () => {
     <>
       <Header />
       <div class="policy-compliance-page">
-        <div class="container1">
+        <div class="container10">
           <div class="conta2">
-              <p>
+          <p className="pg">
                 <h3> Terms and Conditions </h3>
                 <br/>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -30,7 +30,7 @@ const PolicyCompliance = () => {
                 Aliquam erat volutpat.
               </p>
               <br />
-              <p>
+              <p className="pg">
                 {" "}
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Praesent malesuada, arcu non tempor dignissim, lectus felis
@@ -46,13 +46,14 @@ const PolicyCompliance = () => {
                 Aliquam erat volutpat.{" "}
               </p>
             </div>
-          <div class="conta2">
-              <p>
+          <div class="container2">
+            <div class ="conta3">
+              <p className="pg">
                 <br/>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Praesent malesuada, arcu non tempor dignissim, lectus felis
-                viverra odio
+              <img className="photo" src= {check} alt="" />
+              I have read and agree to all the terms and conditions of the company
               </p>
+              </div>
             </div>
           </div>
         </div>
