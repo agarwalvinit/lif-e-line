@@ -8,14 +8,13 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import "./accept.css";
+import "./index.scss";
 // import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
 import CheckBoxRoundedIcon from "@mui/icons-material/CheckBoxRounded";
 import CancelPresentationFilledIcon from "@mui/icons-material/CancelPresentationTwoTone";
 import Button from "@mui/material/Button";
 // import { blue,red } from "@mui/material/colors";
 import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
-import Header from "../Header";
 
 <link
   rel="stylesheet"
@@ -55,7 +54,7 @@ const rows = [
         <FileUploadOutlinedIcon style={{ color: "black" }} />
       </Button>
     </div>,
-    "B+",
+    "B7+",
     <div>
       <Button className="accept">
         <CheckBoxRoundedIcon style={{ color: "#08E72B" }} />
@@ -141,8 +140,6 @@ const rows = [
 
 export default function BasicTable() {
   return (
-    <>
-    <Header />
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 500 }} aria-label="customized table">
         <TableHead>
@@ -173,6 +170,5 @@ export default function BasicTable() {
         </TableBody>
       </Table>
     </TableContainer>
-    </>
   );
 }

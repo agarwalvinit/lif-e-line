@@ -9,8 +9,11 @@ import LandingPage from "../components/LandingPage";
 import RequestAnOrgan from "../components/RequestAnOrgan";
 import DonateAnOrgan from "../components/DonateAnOrgan";
 import Accept from "../components/Accept/accept";
+import Available from "../components/Available";
 import Verify from "../components/Verify";
 import Verified from "../components/Verified";
+import SignUpDetails from "../components/SignUpDetails";
+import PolicyCompliance from "../components/PolicyCompliance";
 
 import "./global.css";
 
@@ -23,8 +26,11 @@ const App = (props) => {
       <PrivateRoute path="/app/details" component={Details} />
       <PrivateRoute path="/app/profile" component={Profile} />
       <PrivateRoute path="/app/accept" component={Accept} />
+      <PrivateRoute path="/app/available" component={Available} />
       <PrivateRoute path="/app/verify" component={Verify} />
       <PrivateRoute path="/app/verified" component={Verified} />
+      <PrivateRoute path="/app/sign-up-details" component={SignUpDetails} />
+      <PrivateRoute path="/app/PolicyCompliance" component={PolicyCompliance} />
 
       <Login path="/app/login" />
       <SignUp path="/app/signup" />
