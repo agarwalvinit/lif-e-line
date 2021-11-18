@@ -15,6 +15,7 @@ import CancelPresentationFilledIcon from "@mui/icons-material/CancelPresentation
 import Button from "@mui/material/Button";
 // import { blue,red } from "@mui/material/colors";
 import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
+import Header from "../Header";
 
 <link
   rel="stylesheet"
@@ -54,10 +55,10 @@ const rows = [
         <FileUploadOutlinedIcon style={{ color: "black" }} />
       </Button>
     </div>,
-    "B7+",
+    "B+",
     <div>
       <Button className="accept">
-        <CheckBoxRoundedIcon style={{ color: "#08E72B" }} />
+        <CheckBoxRoundedIcon style={{ fill: "#08E72B" }} />
       </Button>
       <Button className="reject">
         <CancelPresentationFilledIcon style={{ fill: "#B11005" }} />
@@ -75,7 +76,7 @@ const rows = [
     "O-",
     <div>
       <Button className="accept">
-        <CheckBoxRoundedIcon style={{ color: "#08E72B" }} />
+        <CheckBoxRoundedIcon style={{ fill: "#08E72B" }} />
       </Button>
       <Button className="reject">
         <CancelPresentationFilledIcon style={{ fill: "#B11005" }} />
@@ -93,7 +94,7 @@ const rows = [
     "AB+",
     <div>
       <Button className="accept">
-        <CheckBoxRoundedIcon style={{ color: "#08E72B" }} />
+        <CheckBoxRoundedIcon style={{ fill: "#08E72B" }} />
       </Button>
       <Button className="reject">
         <CancelPresentationFilledIcon style={{ fill: "#B11005" }} />
@@ -111,7 +112,7 @@ const rows = [
     "A+",
     <div>
       <Button className="accept">
-        <CheckBoxRoundedIcon style={{ color: "#08E72B" }} />
+        <CheckBoxRoundedIcon style={{ fill: "#08E72B" }} />
       </Button>
       <Button className="reject">
         <CancelPresentationFilledIcon style={{ fill: "#B11005" }} />
@@ -129,7 +130,7 @@ const rows = [
     "O+",
     <div>
       <Button className="accept">
-        <CheckBoxRoundedIcon style={{ color: "#08E72B" }} />
+        <CheckBoxRoundedIcon style={{ fill: "#08E72B" }} />
       </Button>
       <Button className="reject">
         <CancelPresentationFilledIcon style={{ fill: "#B11005" }} />
@@ -140,6 +141,8 @@ const rows = [
 
 export default function BasicTable() {
   return (
+    <>
+    <Header />
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 500 }} aria-label="customized table">
         <TableHead>
@@ -170,5 +173,6 @@ export default function BasicTable() {
         </TableBody>
       </Table>
     </TableContainer>
+    </>
   );
 }

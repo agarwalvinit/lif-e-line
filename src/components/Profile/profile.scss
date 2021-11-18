@@ -13,11 +13,11 @@
     flex-wrap: wrap;
   }
   .containercard1 {
-    height: 300px;
+    height: 290px;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    align-items: flex-end;
+    align-items: center;
     flex-wrap: wrap;
   }
 
@@ -58,7 +58,6 @@
   .item-5 {
     background-image: url(../../images/policy_compliance.svg);
     background-size: 200px;
-    background-position: top;
     background-repeat: no-repeat;
   }
 }

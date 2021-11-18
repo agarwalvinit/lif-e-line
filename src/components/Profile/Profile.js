@@ -13,7 +13,7 @@ const Profile = () => {
       <Header />
       <div className="profile-container">
         <div class="containercard">
-          <Link>
+          <Link to= "/app/available">
             <div className="item item-1">
               <p>AVAILABLE ORGANS</p>
             </div>
@@ -23,7 +23,7 @@ const Profile = () => {
               <p>DONATE AN ORGAN</p>
             </div>
           </Link>
-          <Link>
+          <Link to="/app/accept">
             <div className="item item-3">
               <p>ACCEPT AN ORGAN</p>
             </div>
@@ -36,7 +36,7 @@ const Profile = () => {
               <p>REQUEST AN ORGAN</p>
             </div>
           </Link>
-          <Link>
+          <Link to="/app/PolicyCompliance">
             <div className="item item-5">
               <p>POLICY COMPLIANCE</p>
             </div>
