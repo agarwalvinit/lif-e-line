@@ -9,6 +9,8 @@ import LandingPage from "../components/LandingPage";
 import RequestAnOrgan from "../components/RequestAnOrgan";
 import DonateAnOrgan from "../components/DonateAnOrgan";
 import Accept from "../components/Accept/accept";
+import RequestsMade from "../components/RequestsMade";
+import DonationsMade from "../components/DonationsMade";
 import Available from "../components/Available";
 import Verify from "../components/Verify";
 import Verified from "../components/Verified";
@@ -26,6 +28,8 @@ const App = (props) => {
       <PrivateRoute path="/app/details" component={Details} />
       <PrivateRoute path="/app/profile" component={Profile} />
       <PrivateRoute path="/app/accept" component={Accept} />
+      <PrivateRoute path="/app/request-made" component={RequestsMade} />
+      <PrivateRoute path="/app/donations-made" component={DonationsMade} />
       <PrivateRoute path="/app/available" component={Available} />
       <PrivateRoute path="/app/verify" component={Verify} />
       <PrivateRoute path="/app/verified" component={Verified} />
