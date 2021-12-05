@@ -1,37 +1,63 @@
 .delete {
-    padding-right: 0px;
-    padding-left: 20px;
+  padding-right: 0px;
+  padding-left: 20px;
 }
 .edit {
-    padding-right: 20px;
-    padding-left: 0px;
+  padding-right: 20px;
+  padding-left: 0px;
 }
-.css-130xbax-MuiTable-root{
-    top: 50%;
-    position: absolute;
-    transform: translate(50%,-50%);
-    right: 50%;
-    width: 75%;
-    
+.css-130xbax-MuiTable-root {
+  top: 50%;
+  position: absolute;
+  transform: translate(50%, -50%);
+  right: 50%;
+  width: 75%;
 }
-.acpt{
-    background-image: url("../../images/donate_an_organ.svg");
+.acpt {
+  background-image: url("../../images/donate_an_organ.svg");
   height: 50%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   top: 20%;
   position: relative;
-  
 }
-.bg{
-    backdrop-filter: blur(1px);
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.72) 0%,
-      rgba(229, 229, 229, 0.67) 100%
-    )
+.bg {
+  backdrop-filter: blur(1px);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(229, 229, 229, 0.67) 100%
+  );
 }
-.bg-grey{
-    background-color: #E5E5E5;
+.bg-grey {
+  background-color: #e5e5e5;
+}
+input[type="submit5"] {
+  margin-top: 10.5%;
+  margin-left: 12.75%;
+  border-radius: 8px;
+  background-color: rgb(97, 104, 120);
+  color: ivory;
+  width: 160px;
+}
+.btn1 {
+    background-color: #616878;
+    width: 25%;
+    padding: 5px;
+    margin-top: 15px;
+    margin-left: 175px;
+    border-radius: 6px;
+    height: 40px;
+    color: white;
+    cursor: pointer;
+    height: 30px;
+    text-align: center;
+}
+.btn1:hover {
+  background-color: #40444f;
+  box-shadow: black;
+}
+.made{
+    margin-left: 12.5%;
 }

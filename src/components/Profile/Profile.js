@@ -18,7 +18,7 @@ const Profile = () => {
               <p>AVAILABLE ORGANS</p>
             </div>
           </Link>
-          <Link to="/app/donate-an-organ">
+          <Link to="/app/donations-made">
             <div className="item item-2">
               <p>DONATE AN ORGAN</p>
             </div>
@@ -31,7 +31,7 @@ const Profile = () => {
         </div>
 
         <div class="containercard1">
-          <Link to="/app/request-an-organ">
+          <Link to="/app/request-made">
             <div className="item item-4">
               <p>REQUEST AN ORGAN</p>
             </div>

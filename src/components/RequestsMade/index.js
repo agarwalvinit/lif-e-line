@@ -9,10 +9,11 @@ import Paper from "@mui/material/Paper";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import "./index.scss";
 import Button from "@mui/material/Button";
-import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
-import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import ModeEditOutlinedIcon from "@mui/icons-material/ModeEditOutlined";
+import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import Header from "../Header";
-import Typography from '@mui/material/Typography';
+import Typography from "@mui/material/Typography";
+import { Link } from "gatsby";
 
 const Input = styled("input")({
   display: "none",
@@ -30,8 +31,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
-  }
-  ,
+  },
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
@@ -109,19 +109,31 @@ export default function BasicTable() {
   return (
     <div className="bg-grey full-height">
       <Header />
+      <div className="made">
+        <h3> Requests Made: </h3>
+      </div>
       <div className="acpt">
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 500 }} aria-label="customized table">
             <TableBody class="bg">
               {rows.map((row) => (
                 <StyledTableRow key={row.orgname}>
-                  <StyledTableCell component="th" scope="row">{row.orgname}</StyledTableCell>
-                  <StyledTableCell align="right">{row.deletededit}</StyledTableCell>
+                  <StyledTableCell component="th" scope="row">
+                    {row.orgname}
+                  </StyledTableCell>
+                  <StyledTableCell align="right">
+                    {row.deletededit}
+                  </StyledTableCell>
                 </StyledTableRow>
               ))}
             </TableBody>
           </Table>
         </TableContainer>
+      </div>
+      <div>
+        <Link to="/app/request-an-organ">
+          <input type="submit5" value="Request for organ " class="btn1" />
+        </Link>
       </div>
     </div>
   );
