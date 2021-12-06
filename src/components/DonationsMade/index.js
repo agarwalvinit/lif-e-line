@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -13,15 +13,11 @@ import ModeEditOutlinedIcon from "@mui/icons-material/ModeEditOutlined";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import Header from "../Header";
 import { Link } from "gatsby";
+import { fetchHospitals } from "../../services/index";
 
 const Input = styled("input")({
   display: "none",
 });
-
-<link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-/>;
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -42,69 +38,31 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     border: 0,
   },
 }));
-function createData(orgname, deletededit) {
-  return { orgname, deletededit };
-}
 
-const rows = [
-  createData(
-    "Fortis",
-    <div>
-      <Button className="delete">
-        <DeleteOutlinedIcon style={{ fill: "#F43365" }} />
-      </Button>
-      <Button className="edit">
-        <ModeEditOutlinedIcon style={{ fill: "#F43365" }} />
-      </Button>
-    </div>
-  ),
-  createData(
-    "Fortis",
-    <div>
-      <Button className="delete">
-        <DeleteOutlinedIcon style={{ fill: "#F43365" }} />
-      </Button>
-      <Button className="edit">
-        <ModeEditOutlinedIcon style={{ fill: "#F43365" }} />
-      </Button>
-    </div>
-  ),
-  createData(
-    "Fortis",
-    <div>
-      <Button className="delete">
-        <DeleteOutlinedIcon style={{ fill: "#F43365" }} />
-      </Button>
-      <Button className="edit">
-        <ModeEditOutlinedIcon style={{ fill: "#F43365" }} />
-      </Button>
-    </div>
-  ),
-  createData(
-    "Fortis",
-    <div>
-      <Button className="delete">
-        <DeleteOutlinedIcon style={{ fill: "#F43365" }} />
-      </Button>
-      <Button className="edit">
-        <ModeEditOutlinedIcon style={{ fill: "#F43365" }} />
-      </Button>
-    </div>
-  ),
-  createData(
-    "Fortis",
-    <div>
-      <Button className="delete">
-        <DeleteOutlinedIcon style={{ fill: "#F43365" }} />
-      </Button>
-      <Button className="edit">
-        <ModeEditOutlinedIcon style={{ fill: "#F43365" }} />
-      </Button>
-    </div>
-  ),
-];
+const BasicTable = () => {
+  const [hospitals, setHospitals] = useState([]); // Initialized with an empty array
 
-export default function BasicTable() {
+  /**
+   * Used to apply any side effects like API calls.
+   */
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const hospitalList = await fetchHospitals();
+        console.log("Hospital List:", hospitalList);
+        setHospitals(hospitalList);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const deleteHospital = (id) => console.log(id);
+
+  const editHospital = (id) => console.log(id);
+
   return (
     <div className="bg-grey full-height">
       <Header />
@@ -115,13 +73,24 @@ export default function BasicTable() {
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 500 }} aria-label="customized table">
             <TableBody class="bg">
-              {rows.map((row) => (
-                <StyledTableRow key={row.orgname}>
+              {hospitals.map((hospital) => (
+                <StyledTableRow key={hospital._id}>
                   <StyledTableCell component="th" scope="row">
-                    {row.orgname}
+                    {`${hospital.name} | ${hospital.state}`}
                   </StyledTableCell>
                   <StyledTableCell align="right">
-                    {row.deletededit}
+                    <Button
+                      className="delete"
+                      onClick={() => deleteHospital(hospital._id)}
+                    >
+                      <DeleteOutlinedIcon style={{ fill: "#F43365" }} />
+                    </Button>
+                    <Button
+                      className="edit"
+                      onClick={() => editHospital(hospital._id)}
+                    >
+                      <ModeEditOutlinedIcon style={{ fill: "#F43365" }} />
+                    </Button>
                   </StyledTableCell>
                 </StyledTableRow>
               ))}
@@ -136,4 +105,6 @@ export default function BasicTable() {
       </div>
     </div>
   );
-}
+};
+
+export default BasicTable;

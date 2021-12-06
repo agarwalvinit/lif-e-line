@@ -109,6 +109,7 @@ export default function BasicTable() {
   return (
     <div className="bg-grey full-height">
       <Header />
+      {/* <div className="request-made-main"> */}
       <div className="made">
         <h3> Requests Made: </h3>
       </div>
@@ -130,6 +131,7 @@ export default function BasicTable() {
           </Table>
         </TableContainer>
       </div>
+      {/* </div> */}
       <div>
         <Link to="/app/request-an-organ">
           <input type="submit5" value="Request for organ " class="btn1" />
