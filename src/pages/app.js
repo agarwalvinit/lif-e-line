@@ -3,7 +3,7 @@ import { Router } from "@reach/router";
 import Profile from "../components/Profile/Profile";
 import Details from "../components/Details";
 import Login from "../components/Login/Login";
-import SignUp from "../components/SignUp/Signup";
+import SignUp from "../components/SignUp/signup";
 import PrivateRoute from "../components/PrivateRoute";
 import LandingPage from "../components/LandingPage";
 import RequestAnOrgan from "../components/RequestAnOrgan";
@@ -31,7 +31,7 @@ const App = (props) => {
   //     city: "New Delhi",
   //     pincode: "230192",
   //     state: "New Delhi",
-  //     email: "arya715@gmail.com"   
+  //     email: "arya715@gmail.com"
   //   }).then(() => {
   //     console.log("succes")
   //   }).catch(() => {
