@@ -20,6 +20,8 @@
     "@material-ui/icons": "^4.11.2",
     "@mui/icons-material": "^5.0.3",
     "@mui/material": "^5.0.3",
+    "firebase": "^9.6.0",
+    "firebase-admin": "^10.0.0",
     "gatsby": "^3.13.1",
     "gatsby-plugin-image": "^1.14.1",
     "gatsby-plugin-manifest": "^3.14.0",
@@ -36,5 +38,6 @@
     "sass": "^1.42.1",
     "superagent": "^6.1.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "proxy": "https://life-line-app-backend.herokuapp.com/"
 }

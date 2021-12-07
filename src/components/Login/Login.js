@@ -27,6 +27,7 @@ class Signup extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const loginStatus = handleLogin(this.state);
+
     if (loginStatus) {
       navigate(`/app/profile`);
     } else {

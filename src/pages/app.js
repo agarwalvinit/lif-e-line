@@ -16,12 +16,32 @@ import Verify from "../components/Verify";
 import Verified from "../components/Verified";
 import SignUpDetails from "../components/SignUpDetails";
 import PolicyCompliance from "../components/PolicyCompliance";
+// import axios from 'axios';
 
 import "./global.css";
 
 const App = (props) => {
+  // axios.defaults.baseURL = "https://life-line-app-backend.herokuapp.com"
+  // const submit = () => {
+  //   axios.post("/hospital", {
+  //     license_no: "MA10355T6T",
+  //     name: "Fortis Hospital",
+  //     building: "Buiilding 7",
+  //     street: "Charpai Road",
+  //     city: "New Delhi",
+  //     pincode: "230192",
+  //     state: "New Delhi",
+  //     email: "arya715@gmail.com"   
+  //   }).then(() => {
+  //     console.log("succes")
+  //   }).catch(() => {
+  //     console.log("error")
+  //   })
+  // }
   return (
     <Router>
+      {/* <button onClick={submit}>click me</button> */}
+
       <LandingPage path="/" component={LandingPage} />
       <PrivateRoute path="/app/request-an-organ" component={RequestAnOrgan} />
       <PrivateRoute path="/app/donate-an-organ" component={DonateAnOrgan} />

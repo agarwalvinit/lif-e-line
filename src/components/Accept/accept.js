@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -13,6 +13,7 @@ import CancelPresentationFilledIcon from "@mui/icons-material/CancelPresentation
 import Button from "@mui/material/Button";
 import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
 import Header from "../Header";
+import { fetchHospitals } from "../../services/index";
 
 const Input = styled("input")({
   display: "none",
@@ -54,7 +55,7 @@ const rows = [
     <div>
       <label htmlFor="contained-button-file1">
         <Input id="contained-button-file1" multiple type="file" />
-          <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
+        <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
       </label>
     </div>,
     "B+",
@@ -73,7 +74,7 @@ const rows = [
     <div>
       <label htmlFor="contained-button-file2">
         <Input id="contained-button-file2" multiple type="file" />
-          <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
+        <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
       </label>
     </div>,
     "O-",
@@ -92,7 +93,7 @@ const rows = [
     <div>
       <label htmlFor="contained-button-file3">
         <Input id="contained-button-file3" multiple type="file" />
-          <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
+        <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
       </label>
     </div>,
     "AB+",
@@ -111,7 +112,7 @@ const rows = [
     <div>
       <label htmlFor="contained-button-file4">
         <Input id="contained-button-file4" multiple type="file" />
-          <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
+        <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
       </label>
     </div>,
     "A+",
@@ -130,7 +131,7 @@ const rows = [
     <div>
       <label htmlFor="contained-button-file5">
         <Input id="contained-button-file5" multiple type="file" />
-          <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
+        <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
       </label>
     </div>,
     "O+",
@@ -146,6 +147,25 @@ const rows = [
 ];
 
 export default function BasicTable() {
+  const [hospitals, setHospitals] = useState([]); // Initialized with an empty array
+
+  /**
+   * Used to apply any side effects like API calls.
+   */
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const hospitalList = await fetchHospitals();
+        console.log("Hospital List:", hospitalList);
+        setHospitals(hospitalList);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className="bg-grey full-height">
       <Header />
@@ -162,20 +182,31 @@ export default function BasicTable() {
               </TableRow>
             </TableHead>
             <TableBody class="bg">
-              {rows.map((row) => (
-                <StyledTableRow key={row.name}>
+              {hospitals.map((hospital) => (
+                <StyledTableRow key={hospital.name}>
                   <StyledTableCell component="th" scope="row">
-                    {row.name}
-                  </StyledTableCell>
-                  <StyledTableCell align="center">{row.age}</StyledTableCell>
-                  <StyledTableCell align="center">
-                    {row.prescription}
+                    {hospital.name}
                   </StyledTableCell>
                   <StyledTableCell align="center">
-                    {row.bloodgroup}
+                    {hospital.age}
                   </StyledTableCell>
                   <StyledTableCell align="center">
-                    {row.acceptreject}
+                    {hospital.prescription}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">
+                    {hospital.bloodgroup}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">
+                    <div>
+                      <Button className="accept">
+                        <CheckBoxRoundedIcon style={{ fill: "#08E72B" }} />
+                      </Button>
+                      <Button className="reject">
+                        <CancelPresentationFilledIcon
+                          style={{ fill: "#B11005" }}
+                        />
+                      </Button>
+                    </div>
                   </StyledTableCell>
                 </StyledTableRow>
               ))}

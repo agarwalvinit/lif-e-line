@@ -47,7 +47,8 @@ const BasicTable = () => {
    */
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async () => 
+    {
       try {
         const hospitalList = await fetchHospitals();
         console.log("Hospital List:", hospitalList);

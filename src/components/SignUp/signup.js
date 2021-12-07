@@ -26,16 +26,14 @@ class SignUp extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const loginStatus = handleLogin(this.state);
-    if (loginStatus) {
-      navigate(`/app/profile`);
-    } else {
-      this.setState({ isError: true });
-    }
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+    
   }
-  handleClose = () => {
-    this.setState({ isError: false });
-  };
+  // handleClose = () => {
+  //   this.setState({ isError: false });
+  // };
 
   renderAction = () => (
     <React.Fragment>
@@ -43,7 +41,6 @@ class SignUp extends React.Component {
         size="small"
         aria-label="close"
         color="inherit"
-        onClick={this.handleClose}
       >
         <CloseIcon fontSize="small" />
       </IconButton>
@@ -51,9 +48,6 @@ class SignUp extends React.Component {
   );
 
   render() {
-    if (isLoggedIn()) {
-      navigate(`/app/profile`);
-    }
 
     return (
       <>
@@ -70,13 +64,14 @@ class SignUp extends React.Component {
                 }}
               >
                 <div className="input-spaces">
-                  <input type="email" name="email" placeholder="Email" />
+                  <input type="email" name="email" placeholder="Email" id="email" />
                 </div>
                 <div className="input-spaces">
                   <input
                     type="password"
                     name="password"
                     placeholder="New password"
+                    id="password"
                   />
                 </div>
                 <div className="button-block-2">

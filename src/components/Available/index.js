@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -13,15 +13,11 @@ import CancelPresentationFilledIcon from "@mui/icons-material/CancelPresentation
 import Button from "@mui/material/Button";
 import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
 import Header from "../Header";
+import { fetchHospitals } from "../../services/index";
 
 const Input = styled("input")({
   display: "none",
 });
-
-<link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-/>;
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -106,6 +102,21 @@ const rows = [
 ];
 
 export default function BasicTable() {
+  const [hospitals, setHospitals] = useState([]); // Initialized with an empty array
+  useEffect(() => {
+    const fetchData = async () => 
+    {
+      try {
+        const hospitalList = await fetchHospitals();
+        console.log("Hospital List:", hospitalList);
+        setHospitals(hospitalList);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className="bg-grey full-height">
       <Header />
@@ -121,17 +132,17 @@ export default function BasicTable() {
               </TableRow>
             </TableHead>
             <TableBody class="bg">
-              {rows.map((row) => (
-                <StyledTableRow key={row.name}>
+              {hospitals.map((hospital) => (
+                <StyledTableRow key={hospital.name}>
                   <StyledTableCell component="th" scope="row">
-                    {row.name}
+                    {hospital.name}
                   </StyledTableCell>
-                  <StyledTableCell align="center">{row.age}</StyledTableCell>
+                  <StyledTableCell align="center">{hospital.age}</StyledTableCell>
                   <StyledTableCell align="center">
-                    {row.prescription}
+                    {hospital.prescription}
                   </StyledTableCell>
                   <StyledTableCell align="center">
-                    {row.bloodgroup}
+                  {hospital.bloodgroup}
                   </StyledTableCell>
                 </StyledTableRow>
               ))}

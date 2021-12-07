@@ -14,7 +14,7 @@ const Header = () => (
   <header className={header}>
     <div className={header__wrap}>
       <Link to="/" className={`${header__link} ${header__linkHome}`}>
-        Life-e-line Logo
+        Life-e-line
       </Link>
       <nav role="main" className={header__nav}>
         {isLoggedIn() && (
