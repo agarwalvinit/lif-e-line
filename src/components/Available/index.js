@@ -40,7 +40,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 function createData(name, age, prescription, bloodgroup) {
-  return { name, age, prescription, bloodgroup};
+  return { name, age, prescription, bloodgroup };
 }
 
 const rows = [
@@ -50,7 +50,7 @@ const rows = [
     <div>
       <label htmlFor="contained-button-file1">
         <Input id="contained-button-file1" multiple type="file" />
-          <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
+        <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
       </label>
     </div>,
     "B+"
@@ -61,7 +61,7 @@ const rows = [
     <div>
       <label htmlFor="contained-button-file2">
         <Input id="contained-button-file2" multiple type="file" />
-          <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
+        <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
       </label>
     </div>,
     "O-"
@@ -72,7 +72,7 @@ const rows = [
     <div>
       <label htmlFor="contained-button-file3">
         <Input id="contained-button-file3" multiple type="file" />
-          <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
+        <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
       </label>
     </div>,
     "AB+"
@@ -83,7 +83,7 @@ const rows = [
     <div>
       <label htmlFor="contained-button-file4">
         <Input id="contained-button-file4" multiple type="file" />
-          <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
+        <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
       </label>
     </div>,
     "A+"
@@ -94,7 +94,7 @@ const rows = [
     <div>
       <label htmlFor="contained-button-file5">
         <Input id="contained-button-file5" multiple type="file" />
-          <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
+        <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
       </label>
     </div>,
     "O+"
@@ -104,8 +104,7 @@ const rows = [
 export default function BasicTable() {
   const [hospitals, setHospitals] = useState([]); // Initialized with an empty array
   useEffect(() => {
-    const fetchData = async () => 
-    {
+    const fetchData = async () => {
       try {
         const hospitalList = await fetchHospitals();
         console.log("Hospital List:", hospitalList);
@@ -122,7 +121,11 @@ export default function BasicTable() {
       <Header />
       <div className="acpt">
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 500 }} aria-label="customized table">
+          <Table
+            sx={{ minWidth: 500 }}
+            className="table-alignment"
+            aria-label="customized table"
+          >
             <TableHead>
               <TableRow>
                 <StyledTableCell align="center">Organ Name</StyledTableCell>
@@ -136,9 +139,11 @@ export default function BasicTable() {
                   <StyledTableCell component="th" scope="row">
                     {hospital.name}
                   </StyledTableCell>
-                  <StyledTableCell align="center">{hospital.age}</StyledTableCell>
                   <StyledTableCell align="center">
-                  {hospital.bloodgroup}
+                    {hospital.age}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">
+                    {hospital.bloodgroup}
                   </StyledTableCell>
                 </StyledTableRow>
               ))}

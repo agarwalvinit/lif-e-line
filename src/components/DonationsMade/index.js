@@ -3,7 +3,6 @@ import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
@@ -47,8 +46,7 @@ const BasicTable = () => {
    */
 
   useEffect(() => {
-    const fetchData = async () => 
-    {
+    const fetchData = async () => {
       try {
         const hospitalList = await fetchHospitals();
         console.log("Hospital List:", hospitalList);
@@ -62,7 +60,6 @@ const BasicTable = () => {
 
   const deleteHospital = (id) => console.log(id);
 
-
   return (
     <div className="bg-grey full-height">
       <Header />
@@ -71,7 +68,11 @@ const BasicTable = () => {
       </div>
       <div className="acpt">
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 500 }} aria-label="customized table">
+          <Table
+            sx={{ minWidth: 500 }}
+            className="table-alignment"
+            aria-label="customized table"
+          >
             <TableBody class="bg">
               {hospitals.map((hospital) => (
                 <StyledTableRow key={hospital._id}>
@@ -85,7 +86,6 @@ const BasicTable = () => {
                     >
                       <DeleteOutlinedIcon style={{ fill: "#F43365" }} />
                     </Button>
-                   
                   </StyledTableCell>
                 </StyledTableRow>
               ))}
