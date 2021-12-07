@@ -125,9 +125,8 @@ export default function BasicTable() {
           <Table sx={{ minWidth: 500 }} aria-label="customized table">
             <TableHead>
               <TableRow>
-                <StyledTableCell align="center">Hospital Name</StyledTableCell>
+                <StyledTableCell align="center">Organ Name</StyledTableCell>
                 <StyledTableCell align="center">Donor Age</StyledTableCell>
-                <StyledTableCell align="center">Prescription</StyledTableCell>
                 <StyledTableCell align="center">Blood Group</StyledTableCell>
               </TableRow>
             </TableHead>
@@ -138,9 +137,6 @@ export default function BasicTable() {
                     {hospital.name}
                   </StyledTableCell>
                   <StyledTableCell align="center">{hospital.age}</StyledTableCell>
-                  <StyledTableCell align="center">
-                    {hospital.prescription}
-                  </StyledTableCell>
                   <StyledTableCell align="center">
                   {hospital.bloodgroup}
                   </StyledTableCell>

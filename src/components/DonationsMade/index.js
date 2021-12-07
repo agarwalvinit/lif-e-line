@@ -62,7 +62,6 @@ const BasicTable = () => {
 
   const deleteHospital = (id) => console.log(id);
 
-  const editHospital = (id) => console.log(id);
 
   return (
     <div className="bg-grey full-height">
@@ -86,12 +85,7 @@ const BasicTable = () => {
                     >
                       <DeleteOutlinedIcon style={{ fill: "#F43365" }} />
                     </Button>
-                    <Button
-                      className="edit"
-                      onClick={() => editHospital(hospital._id)}
-                    >
-                      <ModeEditOutlinedIcon style={{ fill: "#F43365" }} />
-                    </Button>
+                   
                   </StyledTableCell>
                 </StyledTableRow>
               ))}

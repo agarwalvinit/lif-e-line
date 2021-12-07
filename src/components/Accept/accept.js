@@ -176,7 +176,6 @@ export default function BasicTable() {
               <TableRow>
                 <StyledTableCell align="center">Hospital Name</StyledTableCell>
                 <StyledTableCell align="center">Donor Age</StyledTableCell>
-                <StyledTableCell align="center">Prescription</StyledTableCell>
                 <StyledTableCell align="center">Blood Group</StyledTableCell>
                 <StyledTableCell align="center">Accept/Reject</StyledTableCell>
               </TableRow>
@@ -189,9 +188,6 @@ export default function BasicTable() {
                   </StyledTableCell>
                   <StyledTableCell align="center">
                     {hospital.age}
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    {hospital.prescription}
                   </StyledTableCell>
                   <StyledTableCell align="center">
                     {hospital.bloodgroup}
