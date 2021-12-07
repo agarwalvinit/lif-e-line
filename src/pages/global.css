@@ -55,7 +55,7 @@ a {
   background-color: initial;
 }
 
-.table-alignment {
+.MuiPaper-root .table-alignment {
   width: 80%;
   margin: auto;
 }
