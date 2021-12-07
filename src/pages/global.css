@@ -53,9 +53,6 @@ a {
 
 .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded {
   background-color: initial;
-}
-
-.MuiPaper-root .table-alignment {
   width: 80%;
   margin: auto;
 }

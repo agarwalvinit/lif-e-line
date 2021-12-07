@@ -68,11 +68,7 @@ const BasicTable = () => {
       </div>
       <div className="acpt">
         <TableContainer component={Paper}>
-          <Table
-            sx={{ minWidth: 500 }}
-            className="table-alignment"
-            aria-label="customized table"
-          >
+          <Table sx={{ minWidth: 500 }} aria-label="customized table">
             <TableBody class="bg">
               {hospitals.map((hospital) => (
                 <StyledTableRow key={hospital._id}>

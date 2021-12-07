@@ -121,11 +121,7 @@ export default function BasicTable() {
       <Header />
       <div className="acpt">
         <TableContainer component={Paper}>
-          <Table
-            sx={{ minWidth: 500 }}
-            className="table-alignment"
-            aria-label="customized table"
-          >
+          <Table sx={{ minWidth: 500 }} aria-label="customized table">
             <TableHead>
               <TableRow>
                 <StyledTableCell align="center">Organ Name</StyledTableCell>
