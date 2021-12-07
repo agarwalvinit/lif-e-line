@@ -64,12 +64,6 @@ const DonateAnOrgan = () => {
                 </select>{" "}
                 <br />
                 <br />
-                <div class="box1">
-                  <input type="file" id="file" name="file" class="input6" />
-                  <label for="file">
-                    <div class="upload1">&#x2191; Upload Prescription</div>
-                  </label>
-                </div>
                 <input type="submit" value="Next" class="btn1" />
               </>
             ) : (

@@ -55,12 +55,6 @@ const RequestAnOrgan = () => {
                 </select>{" "}
                 <br />
                 <br />
-                <div class="box1">
-                  <input type="file" id="file" name="file" class="inp5" />
-                  <label for="file">
-                    <div class="upload">&#x2191; Upload Prescription</div>
-                  </label>
-                </div>
                 <input type="submit" value="Request" class="btn" />
               </>
             ) : (
