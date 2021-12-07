@@ -35,6 +35,10 @@ const get = (url, options = {}) => {
 
   const getRequest = request.get(requestUrl);
 
+  if (options?.body) {
+    getRequest.query(options.body);
+  }
+
   // Whether to send authorization header in the calls.
   if (shouldAuthorize) {
     getRequest.set("Authorization", getAuthenticationHeader());
