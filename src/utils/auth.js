@@ -22,7 +22,6 @@ export const isLoggedIn = () => {
   if (!isBrowser) return false;
 
   const user = getUser();
-  console.log(!!user.email);
 
   return !!user.email;
 };

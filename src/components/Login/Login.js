@@ -34,6 +34,7 @@ class Signup extends React.Component {
       this.setState({ isError: true });
     }
   }
+  
   handleClose = () => {
     this.setState({ isError: false });
   };

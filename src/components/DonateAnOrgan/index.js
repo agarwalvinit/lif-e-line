@@ -3,9 +3,30 @@ import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import Header from "../Header";
 
 import "./donateAnOrgan.scss";
+import { isLoggedIn } from "../../utils/auth";
 
 const DonateAnOrgan = () => {
   const [isSubmited, onFormSubmit] = useState(false);
+  const [state, setState] = useState({
+    "donor_name":"",
+    "donor_age":0,
+    "organ":"",
+    "blood_group":"",
+    "condition":"",
+  });
+
+  const handleUpdate = (event) => {
+    setState({...state,
+      [event.target.name]: event.target.value,
+    });
+  }
+  
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(state);
+    const email = isLoggedIn();
+  }
+  
 
   return (
     <>
@@ -13,9 +34,9 @@ const DonateAnOrgan = () => {
       <div class="donate-organ-container">
         <form
           method="post"
+          onChange={(event) => handleUpdate(event)}
           onSubmit={(event) => {
-            event.preventDefault();
-            onFormSubmit(true);
+            handleSubmit(event);
           }}
         >
           <div class="box">
@@ -28,25 +49,25 @@ const DonateAnOrgan = () => {
                   placeholder="Donor Name"
                   class="input1"
                   width="400px"
-                  name="name"
+                  name="donor_name"
                 />
                 <br />
                 <br />
                 <input
-                  type="text"
+                  type="number"
                   placeholder="Donor Age"
-                  name="age"
+                  name="donor_age"
                   class="input2 input"
                 />
                 <input
                   type="text"
                   placeholder="Blood Group"
                   class="input3 input"
-                  name="blood"
+                  name="blood_group"
                 />
                 <br />
                 <br />
-                <select id="org" name="org" class="input4">
+                <select id="org" name="organ" class="input4">
                   <option value="selorg">Select Organ</option>
                   <option value="heart">Heart</option>
                   <option value="liver">Liver</option>
