@@ -14,6 +14,8 @@ import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import Header from "../Header";
 import Typography from "@mui/material/Typography";
 import { Link } from "gatsby";
+import { getUser } from "../../utils/auth";
+import { POST_UN_AUTH } from "../../utils/http";
 
 const Input = styled("input")({
   display: "none",
@@ -106,6 +108,22 @@ const rows = [
 ];
 
 export default function BasicTable() {
+  const [requests, setRequests] = React.useState([]); // Initialized with an empty array
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const user = await getUser();
+        const email = user.email;
+        const response = await POST_UN_AUTH('/request_organ/available',{email});
+        console.log(response);
+        setRequests(response);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <div className="bg-grey full-height">
       <Header />
@@ -117,13 +135,18 @@ export default function BasicTable() {
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 500 }} aria-label="customized table">
             <TableBody class="bg">
-              {rows.map((row) => (
-                <StyledTableRow key={row.orgname}>
+              {requests.map((request) => (
+                <StyledTableRow key={request._id}>
                   <StyledTableCell component="th" scope="row">
-                    {row.orgname}
+                    {request.organ} | {request.patient_name}, {request.patient_age} | {request.blood_group}
                   </StyledTableCell>
                   <StyledTableCell align="right">
-                    {row.deletededit}
+                  <Button className="delete">
+                    <DeleteOutlinedIcon style={{ fill: "#F43365" }} />
+                  </Button>
+                  <Button className="edit">
+                    <ModeEditOutlinedIcon style={{ fill: "#F43365" }} />
+                  </Button>
                   </StyledTableCell>
                 </StyledTableRow>
               ))}

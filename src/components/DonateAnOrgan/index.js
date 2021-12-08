@@ -3,7 +3,8 @@ import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import Header from "../Header";
 
 import "./donateAnOrgan.scss";
-import { isLoggedIn } from "../../utils/auth";
+import { getUser } from "../../utils/auth";
+import { POST_UN_AUTH } from "../../utils/http";
 
 const DonateAnOrgan = () => {
   const [isSubmited, onFormSubmit] = useState(false);
@@ -21,10 +22,17 @@ const DonateAnOrgan = () => {
     });
   }
   
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(state);
-    const email = isLoggedIn();
+    const user = await getUser();
+    const email = user.email;
+    console.log({...state, email});
+    const response = await POST_UN_AUTH('/organ',{...state, email});
+    if(!response.error){
+      console.log(response)
+      console.log("test")
+      onFormSubmit(true)
+    }
   }
   
 
@@ -45,6 +53,7 @@ const DonateAnOrgan = () => {
                 <h1 class="h1">DONATE AN ORGAN</h1>
                 <h2 class="h2">Donor Details</h2>
                 <input
+                  required
                   type="text"
                   placeholder="Donor Name"
                   class="input1"
@@ -54,12 +63,14 @@ const DonateAnOrgan = () => {
                 <br />
                 <br />
                 <input
+                  required
                   type="number"
                   placeholder="Donor Age"
                   name="donor_age"
                   class="input2 input"
                 />
                 <input
+                  required
                   type="text"
                   placeholder="Blood Group"
                   class="input3 input"
@@ -67,8 +78,8 @@ const DonateAnOrgan = () => {
                 />
                 <br />
                 <br />
-                <select id="org" name="organ" class="input4">
-                  <option value="selorg">Select Organ</option>
+                <select id="org" name="organ" class="input4" required>
+                  <option value="">Select Organ</option>
                   <option value="heart">Heart</option>
                   <option value="liver">Liver</option>
                   <option value="kidney">Kidney</option>
@@ -76,16 +87,16 @@ const DonateAnOrgan = () => {
                 </select>{" "}
                 <br />
                 <br />
-                <select id="condition" name="condition" class="input5">
-                  <option value="conorg">Condition of the Organ</option>
-                  <option value="new">New</option>
-                  <option value="old">Old</option>
-                  <option value="good">Good</option>
-                  <option value="bad">Bad</option>
+                <select id="condition" name="condition" class="input5" required>
+                  <option value="">Condition of the Organ</option>
+                  <option value="NEW">New</option>
+                  <option value="OLD">Old</option>
+                  <option value="GOOD">Good</option>
+                  <option value="BAD">Bad</option>
                 </select>{" "}
                 <br />
                 <br />
-                <input type="submit" value="Next" class="btn1" />
+                <input type="submit" required value="Next" class="btn1" />
               </>
             ) : (
               <div className="donation-accepted-container">

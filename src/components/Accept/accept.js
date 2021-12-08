@@ -14,6 +14,8 @@ import Button from "@mui/material/Button";
 import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
 import Header from "../Header";
 import { fetchHospitals } from "../../services/index";
+import { getUser } from "../../utils/auth";
+import { GET_UN_AUTH, POST_UN_AUTH } from "../../utils/http";
 
 const Input = styled("input")({
   display: "none",
@@ -147,7 +149,8 @@ const rows = [
 ];
 
 export default function BasicTable() {
-  const [hospitals, setHospitals] = useState([]); // Initialized with an empty array
+  const [patients, setPatients] = useState([]); // Initialized with an empty array
+  const [accepted, setAccepted] = useState(false)
 
   /**
    * Used to apply any side effects like API calls.
@@ -156,15 +159,33 @@ export default function BasicTable() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const hospitalList = await fetchHospitals();
-        console.log("Hospital List:", hospitalList);
-        setHospitals(hospitalList);
+        const user = await getUser();
+        const email = user.email;
+        const response = await POST_UN_AUTH('/request_organ/available',{email});
+        console.log(response);
+        setPatients(response);
       } catch (e) {
         console.error(e);
       }
     };
     fetchData();
   }, []);
+
+  const rejectPatient = async (id, i) => {
+      var myobj2 = document.getElementById("row-"+i);
+      myobj2.remove();
+  };
+
+  const acceptPatient = async(id) =>{
+    const user = await getUser();
+    const email = user.email;
+    const response = await POST_UN_AUTH('/accept/'+id,{email});
+    console.log(response);
+    if(response._id){
+      setAccepted(true)
+    }
+  }
+
 
   return (
     <div className="bg-grey full-height">
@@ -181,29 +202,32 @@ export default function BasicTable() {
               </TableRow>
             </TableHead>
             <TableBody class="bg">
-              {hospitals.map((hospital) => (
-                <StyledTableRow key={hospital.name}>
-                  <StyledTableCell component="th" scope="row">
-                    {hospital.name}
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    {hospital.age}
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    {hospital.bloodgroup}
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    <div>
-                      <Button className="accept">
-                        <CheckBoxRoundedIcon style={{ fill: "#08E72B" }} />
-                      </Button>
-                      <Button className="reject">
-                        <CancelPresentationFilledIcon
-                          style={{ fill: "#B11005" }}
-                        />
-                      </Button>
-                    </div>
-                  </StyledTableCell>
+              {patients.map((patient, i) => (
+                <StyledTableRow id={"row-"+i} key={patient._id}>
+                    <StyledTableCell component="th" scope="row">
+                      {patient.hos_id}
+                    </StyledTableCell>
+                    <StyledTableCell align="center">
+                      {patient.patient_age}
+                    </StyledTableCell>
+                    <StyledTableCell align="center">
+                      {patient.blood_group}
+                    </StyledTableCell>
+                    <StyledTableCell align="center">
+                    {accepted 
+                    ? <div>accepted</div>
+                    :
+                      <div>
+                        <Button className="accept" onClick={() => acceptPatient(patient._id)}>
+                          <CheckBoxRoundedIcon style={{ fill: "#08E72B" }} />
+                        </Button>
+                        <Button className="reject" onClick={() => rejectPatient(patient._id, i)}>
+                          <CancelPresentationFilledIcon
+                            style={{ fill: "#B11005" }}
+                          />
+                        </Button>
+                      </div>}
+                    </StyledTableCell>
                 </StyledTableRow>
               ))}
             </TableBody>

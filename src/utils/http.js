@@ -8,7 +8,6 @@ export const GET_UN_AUTH = async (path, params) => {
     return res.data;
   } catch (e) {
     console.error(e);
-    toast.error('Error in Server Call');
     return {error: true};
   }
 }
@@ -19,7 +18,6 @@ export const POST_UN_AUTH = async (path, data) => {
     return res.data;
   } catch (e) {
     console.error(e);
-    toast.error('Error in Server Call');
     return {error: true};
   }
 }
@@ -30,7 +28,6 @@ export const GET_AUTH = async (path, token, params) => {
     return res.data;
   } catch (e) {
     console.error(e);
-    toast.error('Error in Server Call');
     return {error: true};
   }
 }
@@ -44,7 +41,6 @@ export const POST_AUTH = async (path, data, token) => {
     return res.data;
   } catch (e) {
     console.error(e);
-    toast.error('Error in Server Call');
     return {error: true};
   }
 }

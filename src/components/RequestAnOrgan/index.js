@@ -1,11 +1,37 @@
 import React, { useState } from "react";
 import Header from "../Header";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import { getUser } from "../../utils/auth";
+import { POST_UN_AUTH } from "../../utils/http";
 
 import "./requestAnOrgan.scss";
 
 const RequestAnOrgan = () => {
   const [isSubmited, onFormSubmit] = useState(false);
+  const [state, setState] = useState({
+    "patient_name":"",
+    "patient_age":0,
+    "blood_group":"",
+    "organ":"",
+  });
+
+  const handleUpdate = (event) => {
+    setState({...state,
+      [event.target.name]: event.target.value,
+    });
+  }
+  
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const user = await getUser();
+    const email = user.email;
+    console.log({...state, email});
+    const response = await POST_UN_AUTH('/request_organ',{...state, email});
+    if(!response.error){
+      console.log(response)
+      onFormSubmit(true)
+    }
+  }
 
   return (
     <>
@@ -13,9 +39,9 @@ const RequestAnOrgan = () => {
       <div class="request-organ-container">
         <form
           method="post"
+          onChange={(event) => handleUpdate(event)}
           onSubmit={(event) => {
-            event.preventDefault();
-            onFormSubmit(true);
+            handleSubmit(event);
           }}
         >
           <div class="box">
@@ -28,25 +54,25 @@ const RequestAnOrgan = () => {
                   placeholder="Patient Name"
                   class="inp1"
                   width="400px"
-                  name="name"
+                  name="patient_name"
                 />
                 <br />
                 <br />
                 <input
                   type="text"
                   placeholder="Patient Age"
-                  name="age"
+                  name="patient_age"
                   class="inp2 input"
                 />
                 <input
                   type="text"
                   placeholder="Blood Group"
                   class="inp3 input"
-                  name="blood"
+                  name="blood_group"
                 />
                 <br />
                 <br />
-                <select id="org" name="org" class="inp4">
+                <select id="org" name="organ" class="inp4">
                   <option value="selorg">Select Organ</option>
                   <option value="heart">Heart</option>
                   <option value="liver">Liver</option>
