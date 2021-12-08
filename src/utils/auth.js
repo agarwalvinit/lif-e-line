@@ -1,6 +1,6 @@
 const isBrowser = typeof window !== `undefined`;
 
-const getUser = () =>
+export const getUser = () =>
   window.localStorage.user ? JSON.parse(window.localStorage.user) : {};
 
 const setUser = (user) => (window.localStorage.user = JSON.stringify(user));
@@ -22,7 +22,6 @@ export const isLoggedIn = () => {
   if (!isBrowser) return false;
 
   const user = getUser();
-  console.log(!!user.email);
 
   return !!user.email;
 };

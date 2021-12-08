@@ -7,11 +7,14 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import "./index.scss";
+import axios from "axios";
 import Button from "@mui/material/Button";
 import ModeEditOutlinedIcon from "@mui/icons-material/ModeEditOutlined";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import Header from "../Header";
 import { Link } from "gatsby";
+import { getUser } from "../../utils/auth";
+import { POST_UN_AUTH } from "../../utils/http";
 import { fetchHospitals } from "../../services/index";
 
 const Input = styled("input")({
@@ -39,18 +42,16 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const BasicTable = () => {
-  const [hospitals, setHospitals] = useState([]); // Initialized with an empty array
-
-  /**
-   * Used to apply any side effects like API calls.
-   */
+  const [organs, setOrgans] = useState([]); // Initialized with an empty array
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const hospitalList = await fetchHospitals();
-        console.log("Hospital List:", hospitalList);
-        setHospitals(hospitalList);
+        const user = await getUser();
+        const email = user.email;
+        const response = await POST_UN_AUTH('/organ/me',{email});
+        console.log(response);
+        setOrgans(response);
       } catch (e) {
         console.error(e);
       }
@@ -58,7 +59,16 @@ const BasicTable = () => {
     fetchData();
   }, []);
 
-  const deleteHospital = (id) => console.log(id);
+  const deleteHospital = async (id, index) => {
+    const response = await axios.delete(`https://life-line-app-backend.herokuapp.com/organ/${id}`);
+    console.log(response)
+    if(response.status==200){
+        var myobj = document.getElementById("row-"+index);
+        myobj.remove();
+    }
+  };
+
+  console.log(organs)
 
   return (
     <div className="bg-grey full-height">
@@ -66,19 +76,19 @@ const BasicTable = () => {
       <div className="made">
         <h3> Donations Made: </h3>
       </div>
-      <div className="acpt">
+      <div className="acpt" style={{"top":"5%"}}>
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 500 }} aria-label="customized table">
+          <Table aria-label="customized table">
             <TableBody class="bg">
-              {hospitals.map((hospital) => (
-                <StyledTableRow key={hospital._id}>
+              {organs.map((organ, i) => (
+                <StyledTableRow id={"row-"+i} key={organ._id}>
                   <StyledTableCell component="th" scope="row">
-                    {`${hospital.name} | ${hospital.state}`}
+                    {`${organ.organ} | ${organ.donor_name}, ${organ.donor_age} | ${organ.blood_group}`}
                   </StyledTableCell>
                   <StyledTableCell align="right">
                     <Button
                       className="delete"
-                      onClick={() => deleteHospital(hospital._id)}
+                      onClick={() => deleteHospital(organ._id, i)}
                     >
                       <DeleteOutlinedIcon style={{ fill: "#F43365" }} />
                     </Button>

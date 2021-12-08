@@ -14,10 +14,12 @@ import Button from "@mui/material/Button";
 import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
 import Header from "../Header";
 import { fetchHospitals } from "../../services/index";
+import { getUser } from "../../utils/auth";
+import { GET_UN_AUTH, POST_UN_AUTH } from "../../utils/http";
 
-const Input = styled("input")({
-  display: "none",
-});
+// const Input = styled("input")({
+//   display: "none",
+// });
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -39,76 +41,79 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function createData(name, age, prescription, bloodgroup) {
-  return { name, age, prescription, bloodgroup };
-}
+// function createData(name, age, prescription, bloodgroup) {
+//   return { name, age, prescription, bloodgroup };
+// }
 
-const rows = [
-  createData(
-    "Fortis",
-    56,
-    <div>
-      <label htmlFor="contained-button-file1">
-        <Input id="contained-button-file1" multiple type="file" />
-        <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
-      </label>
-    </div>,
-    "B+"
-  ),
-  createData(
-    "Fortis",
-    65,
-    <div>
-      <label htmlFor="contained-button-file2">
-        <Input id="contained-button-file2" multiple type="file" />
-        <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
-      </label>
-    </div>,
-    "O-"
-  ),
-  createData(
-    "Fortis",
-    80,
-    <div>
-      <label htmlFor="contained-button-file3">
-        <Input id="contained-button-file3" multiple type="file" />
-        <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
-      </label>
-    </div>,
-    "AB+"
-  ),
-  createData(
-    "Fortis",
-    28,
-    <div>
-      <label htmlFor="contained-button-file4">
-        <Input id="contained-button-file4" multiple type="file" />
-        <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
-      </label>
-    </div>,
-    "A+"
-  ),
-  createData(
-    "Fortis",
-    25,
-    <div>
-      <label htmlFor="contained-button-file5">
-        <Input id="contained-button-file5" multiple type="file" />
-        <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
-      </label>
-    </div>,
-    "O+"
-  ),
-];
+// const rows = [
+//   createData(
+//     "Fortis",
+//     56,
+//     <div>
+//       <label htmlFor="contained-button-file1">
+//         <Input id="contained-button-file1" multiple type="file" />
+//         <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
+//       </label>
+//     </div>,
+//     "B+"
+//   ),
+//   createData(
+//     "Fortis",
+//     65,
+//     <div>
+//       <label htmlFor="contained-button-file2">
+//         <Input id="contained-button-file2" multiple type="file" />
+//         <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
+//       </label>
+//     </div>,
+//     "O-"
+//   ),
+//   createData(
+//     "Fortis",
+//     80,
+//     <div>
+//       <label htmlFor="contained-button-file3">
+//         <Input id="contained-button-file3" multiple type="file" />
+//         <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
+//       </label>
+//     </div>,
+//     "AB+"
+//   ),
+//   createData(
+//     "Fortis",
+//     28,
+//     <div>
+//       <label htmlFor="contained-button-file4">
+//         <Input id="contained-button-file4" multiple type="file" />
+//         <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
+//       </label>
+//     </div>,
+//     "A+"
+//   ),
+//   createData(
+//     "Fortis",
+//     25,
+//     <div>
+//       <label htmlFor="contained-button-file5">
+//         <Input id="contained-button-file5" multiple type="file" />
+//         <FileUploadOutlinedIcon style={{ color: "black", cursor: "pointer" }} />
+//       </label>
+//     </div>,
+//     "O+"
+//   ),
+// ];
 
 export default function BasicTable() {
-  const [hospitals, setHospitals] = useState([]); // Initialized with an empty array
+  const [organs, setOrgans] = useState([]); // Initialized with an empty array
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const hospitalList = await fetchHospitals();
-        console.log("Hospital List:", hospitalList);
-        setHospitals(hospitalList);
+        const user = await getUser();
+        const email = user.email;
+        console.log(email);
+        const response = await POST_UN_AUTH('/organ/all',{email});
+        console.log(response);
+        setOrgans(response);
       } catch (e) {
         console.error(e);
       }
@@ -127,19 +132,23 @@ export default function BasicTable() {
                 <StyledTableCell align="center">Organ Name</StyledTableCell>
                 <StyledTableCell align="center">Donor Age</StyledTableCell>
                 <StyledTableCell align="center">Blood Group</StyledTableCell>
+                <StyledTableCell align="center">Status</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody class="bg">
-              {hospitals.map((hospital) => (
-                <StyledTableRow key={hospital.name}>
+              {organs.map((organ) => (
+                <StyledTableRow key={organ._id}>
                   <StyledTableCell component="th" scope="row">
-                    {hospital.name}
+                    {organ.organ}
                   </StyledTableCell>
                   <StyledTableCell align="center">
-                    {hospital.age}
+                    {organ.donor_age}
                   </StyledTableCell>
                   <StyledTableCell align="center">
-                    {hospital.bloodgroup}
+                    {organ.blood_group}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">
+                    {organ.status}
                   </StyledTableCell>
                 </StyledTableRow>
               ))}

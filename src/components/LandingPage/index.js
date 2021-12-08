@@ -10,18 +10,18 @@ const LandingPage = () => {
           lif-e-line
         </Link>
         <div className="right-nav">
-          <Link to="/" className="nav-space">
+          {/* <Link to="/" className="nav-space">
             About
           </Link>
           <Link to="/" className="nav-space">
             Contact
-          </Link>
+          </Link> */}
           <Link to="/app/login" className="nav-space">
             Login
           </Link>
-          <Link to="/app/signup" className="nav-space">
+          {/* <Link to="/app/signup" className="nav-space">
             Sign Up
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>

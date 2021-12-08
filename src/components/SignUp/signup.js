@@ -26,10 +26,7 @@ class SignUp extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-    
+    console.log(this.state)
   }
   // handleClose = () => {
   //   this.setState({ isError: false });
