@@ -115,11 +115,12 @@ export default function BasicTable() {
       try {
         const user = await getUser();
         const email = user.email;
-        const response = await POST_UN_AUTH('/request_organ/available',{email});
+        const response = await POST_UN_AUTH('/request_organ/me',{email});
         console.log(response);
         setRequests(response);
       } catch (e) {
         console.error(e);
+        // /request_organ/id
       }
     };
     fetchData();

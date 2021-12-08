@@ -111,7 +111,7 @@ export default function BasicTable() {
         const user = await getUser();
         const email = user.email;
         console.log(email);
-        const response = await POST_UN_AUTH('/organ',{email});
+        const response = await POST_UN_AUTH('/organ/all',{email});
         console.log(response);
         setOrgans(response);
       } catch (e) {
@@ -132,22 +132,26 @@ export default function BasicTable() {
                 <StyledTableCell align="center">Organ Name</StyledTableCell>
                 <StyledTableCell align="center">Donor Age</StyledTableCell>
                 <StyledTableCell align="center">Blood Group</StyledTableCell>
+                <StyledTableCell align="center">Status</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody class="bg">
-              {/* {organs.map((organ) => (
+              {organs.map((organ) => (
                 <StyledTableRow key={organ._id}>
                   <StyledTableCell component="th" scope="row">
-                    {organ.patient_name}
+                    {organ.organ}
                   </StyledTableCell>
                   <StyledTableCell align="center">
                     {organ.donor_age}
                   </StyledTableCell>
                   <StyledTableCell align="center">
-                    {organ.bloodgroup}
+                    {organ.blood_group}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">
+                    {organ.status}
                   </StyledTableCell>
                 </StyledTableRow>
-              ))} */}
+              ))}
             </TableBody>
           </Table>
         </TableContainer>

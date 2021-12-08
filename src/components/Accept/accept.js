@@ -205,7 +205,7 @@ export default function BasicTable() {
               {patients.map((patient, i) => (
                 <StyledTableRow id={"row-"+i} key={patient._id}>
                     <StyledTableCell component="th" scope="row">
-                      {patient.hos_id}
+                      {patient.hos_id.name}, {patient.hos_id.street}
                     </StyledTableCell>
                     <StyledTableCell align="center">
                       {patient.patient_age}
