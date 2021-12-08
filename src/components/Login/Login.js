@@ -94,14 +94,14 @@ class Signup extends React.Component {
                     action={this.renderAction()}
                   />
                 </div>
-                <p> Or </p>
+                {/* <p> Or </p>
                 <div className="button-block">
                   <Link to="/app/signup/">
                     <Button className="button" variant="contained">
                       Sign Up
                     </Button>
                   </Link>
-                </div>
+                </div> */}
               </form>
             </div>
           </div>

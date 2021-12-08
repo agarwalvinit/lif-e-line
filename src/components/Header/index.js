@@ -13,21 +13,21 @@ import {
 const Header = () => (
   <header className={header}>
     <div className={header__wrap}>
-      <Link to="/" className={`${header__link} ${header__linkHome}`}>
+      <Link to={isLoggedIn()?"/app/profile":"/"} className={`${header__link} ${header__linkHome}`}>
         Life-e-line
       </Link>
       <nav role="main" className={header__nav}>
         {isLoggedIn() && (
           <>
-            <Button
+            {/* <Button
               className={header__link}
               onClick={(event) => {
                 event.preventDefault();
                 navigate(`/app/profile`);
               }}
             >
-              Profile
-            </Button>
+              Home
+            </Button> */}
             <Button
               className={header__link}
               onClick={(event) => {
